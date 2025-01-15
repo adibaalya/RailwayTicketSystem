@@ -1,11 +1,7 @@
 package src;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.Set;
 
 
 public class TrainAdmin extends Train {
@@ -234,6 +230,7 @@ public class TrainAdmin extends Train {
 					System.out.println("*******************************************");
 					System.out.println("Updating Train Info");
 					System.out.println("*******************************************");
+					display();
 					System.out.println("Please enter the train number to update the train's info");
 					int n = in.nextInt();
 					if(vikram.trainExists(n))
