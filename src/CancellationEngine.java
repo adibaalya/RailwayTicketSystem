@@ -36,7 +36,7 @@ public class CancellationEngine {
     }
 
     // Method to prompt user for booking number and validate 
-    private int getBookingNumberToCancel() {
+    public int getBookingNumberToCancel() {
 		System.out.println("Please Enter the booking Number you wish to cancel");
 		return in.nextInt();
 	}
