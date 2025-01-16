@@ -14,27 +14,16 @@ public class User {
 	HashMap<Integer,Ticket> bookings;
 	
 	public HashMap<Integer,Ticket> getBookings() {
-		if (bookings == null) {
-            bookings = new HashMap<Integer, Ticket>();
-        }
 		return bookings;
 	}
 
 	public void setBookings(Ticket ticket) {
-		if (ticket != null && ticket.getBookingNumber() > 0) {
-            bookings.put(ticket.getBookingNumber(), ticket);
-        } else {
-            System.out.println("Invalid ticket provided for booking.");
-        }
+		bookings.put(ticket.getBookingNumber(),ticket);
 	}
 	
 	public void removeBooking(int bookingNumber)
 	{
-		if (bookings.containsKey(bookingNumber)) {
-            bookings.remove(bookingNumber);
-        } else {
-            System.out.println("Booking number not found.");
-        }
+		bookings.remove(bookingNumber);
 	}
 
 	User()
