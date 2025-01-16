@@ -1,6 +1,8 @@
+package src;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-// Hi this is the class of LoginSystem
+
+//hi its me
 class LoginSystem
 {
 	void login(UserSystem us) throws Exception
