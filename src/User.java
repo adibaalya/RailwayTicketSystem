@@ -17,6 +17,7 @@ public class User {
         return bookings;
 	}
 
+	//set booking method
 	public void setBookings(Ticket ticket) {
 		if (ticket != null && ticket.getBookingNumber() > 0) {
             bookings.put(ticket.getBookingNumber(), ticket);
@@ -25,6 +26,7 @@ public class User {
         }
 	}
 	
+	//remove booking method
 	public void removeBooking(int bookingNumber){
 		if (bookings.containsKey(bookingNumber)) {
             bookings.remove(bookingNumber);
