@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class CancellationEngine {
 	
 	static Scanner in = new Scanner(System.in);
-	PaymentEngine pEngine;
+	PaymentEngine paymentEngine;
 	
 	void cancelTicket(User user)
 	{
@@ -31,10 +31,10 @@ public class CancellationEngine {
 			Ticket t = bookings.get(bookingNumber);
 			System.out.println("Your booking has been cancelled");
 			System.out.println("Amount of "+t.getFare()+" has been credited back to your account");
-			if(pEngine == null)
-				pEngine = new PaymentEngine();
+			if(paymentEngine == null)
+				paymentEngine = new PaymentEngine();
 			
-			pEngine.processRefund(user,t);
+			paymentEngine.processRefund(user,t);
 			user.removeBooking(bookingNumber);
 			System.out.println("*****************************************");
 

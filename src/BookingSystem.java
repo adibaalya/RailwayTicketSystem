@@ -6,10 +6,10 @@ import java.util.Scanner;
 
 class BookingSystem
 {
-	EnquiryEngine Eengine;
-	BookingEngine Bengine;
-	PaymentEngine Pengine;
-	CancellationEngine Cengine;
+	EnquiryEngine enquiryEngine;
+	BookingEngine bookingEngine;
+	PaymentEngine paymentEngine;
+	CancellationEngine cancellationEngine;
 	static Scanner in = new Scanner(System.in);
 	public int booking(User user) throws Exception
 	{
@@ -45,14 +45,14 @@ class BookingSystem
 						{
 							System.out.println("Train has "+ t.getNumberOfSeats()+" seats");
 							System.out.println("booking");
-							if(Bengine == null)
-								Bengine = new BookingEngine();
-							if(Pengine == null)
-								Pengine = new PaymentEngine();
+							if(bookingEngine == null)
+								bookingEngine = new BookingEngine();
+							if(paymentEngine == null)
+								paymentEngine = new PaymentEngine();
 							
-							if(Pengine.deductBalance(t,user))
+							if(paymentEngine.deductBalance(t,user))
 							{
-								Bengine.bookTicket(n,user);
+								bookingEngine.bookTicket(n,user);
 							}
 							else
 								System.out.println("Booking failed. User has insufficient balance.");
@@ -71,19 +71,19 @@ class BookingSystem
 		}
 		else if(choice == 3)
 		{
-			if(Cengine == null)
-				Cengine = new CancellationEngine();
+			if(cancellationEngine == null)
+				cancellationEngine = new CancellationEngine();
 			
-			Cengine.cancelTicket(user);
+			cancellationEngine.cancelTicket(user);
 		}
 		return 1;
 	}
 
 	private HashMap<Integer,Train> enquiry() throws Exception  {
-		if(Eengine == null)
-			Eengine = new EnquiryEngine();
+		if(enquiryEngine == null)
+			enquiryEngine = new EnquiryEngine();
 		
-		 HashMap<Integer,Train> t = Eengine.enquire();
+		 HashMap<Integer,Train> t = enquiryEngine.enquire();
 		 
 		 return t;
 		 
