@@ -7,7 +7,7 @@ public class CancellationEngine {
 	
 	//attribute
 	static Scanner in = new Scanner(System.in);
-	PaymentEngine pEngine;
+	PaymentEngine paymentEngine;
 	
 	// Main method to cancel ticket
     void cancelTicket(User user) {
@@ -54,10 +54,10 @@ public class CancellationEngine {
         System.out.println("Your booking has been cancelled");
         System.out.println("Amount of " + ticket.getFare() + " has been credited back to your account");
 
-        if (pEngine == null) {
-            pEngine = new PaymentEngine();
+        if (paymentEngine == null) {
+            paymentEngine = new PaymentEngine();
         }
-        pEngine.processRefund(user, ticket);
+        paymentEngine.processRefund(user, ticket);
         user.removeBooking(bookingNumber);
         System.out.println("*****************************************");
     }
