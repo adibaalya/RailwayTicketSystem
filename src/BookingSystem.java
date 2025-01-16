@@ -24,6 +24,7 @@ class BookingSystem
 		if(choice == 1)
 		{
 			HashMap<Integer,Train> tt = enquiry();
+
 			if(tt.isEmpty())
 				 System.out.println("No trains exists for the given information");
 			
@@ -65,8 +66,42 @@ class BookingSystem
 					else
 						System.out.println("Please enter the correct Train Number");
 				}
+
+			if (!tt.isEmpty()) {
+			    System.out.println("Select train number to book");
+			    int n;
+			    try {
+			        n = Integer.parseInt(in.nextLine());
+			    } catch (NumberFormatException e) {
+			        System.out.println("Invalid input. Please enter a valid train number.");
+			        return 0;
+			    }
+
+			    if (tt.containsKey(n)) {
+			        Train t = tt.get(n);
+			        if (t.getNumberOfSeats() > 0) {
+			            System.out.println("Train has " + t.getNumberOfSeats() + " seats");
+			            System.out.println("Booking");
+			            if (Bengine == null) Bengine = new BookingEngine();
+			            if (Pengine == null) Pengine = new PaymentEngine();
+
+
+			            if (Pengine.deductBalance(t, user)) {
+			                Bengine.bookTicket(n, user);
+			            } else {
+			                System.out.println("Booking failed. User has insufficient balance.");
+			            }
+			        } else {
+			            System.out.println("Train doesn't have any vacant seats.");
+			        }
+			    } else {
+			        System.out.println("Please enter a valid train number.");
+			    }
+			} else {
+			    System.out.println("No trains available for the given information.");
+
 			}
-			
+
 			return 0;	
 		}
 		else if(choice == 3)
@@ -92,4 +127,3 @@ class BookingSystem
 	
 	
 }
-
