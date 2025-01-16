@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class CancellationEngine {
 	
+	//attribute
 	static Scanner in = new Scanner(System.in);
 	PaymentEngine pEngine;
 	
@@ -34,11 +35,12 @@ public class CancellationEngine {
         System.out.println("****************************************");
     }
 
-    // Method to prompt user for booking number and validate
-    private int getBookingNumberToCancel(User user) {
-        System.out.println("Please Enter the booking Number you wish to cancel");
-        return in.nextInt();
-    }
+    // Method to prompt user for booking number and validate 
+    private int getBookingNumberToCancel() {
+		System.out.println("Please Enter the booking Number you wish to cancel");
+		return in.nextInt();
+	}
+	
 
     // Method to check if the booking number exists in user's bookings
     private boolean isValidBooking(User user, int bookingNumber) {
