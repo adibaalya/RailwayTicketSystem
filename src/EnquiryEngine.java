@@ -33,14 +33,18 @@ class EnquiryEngine
 			String t_startCity = t.getStartCity();
 			String t_endCity = t.getEndCity();
 			HashMap<String, Integer> operatingDays = t.getOperatingDays();
-			if (startCity.equals(t_startCity) && endCity.equals(t_endCity) && operatingDays.get(day) == 1) {
-				System.out.println("*******************************************");
-				System.out.println("Train number: " + t.getTrainNumber());
-				System.out.println("Train start city: " + t_startCity);
-				System.out.println("Train end city: " + t_endCity);
-				System.out.println("Train fare: " + t.getTrainFare());
-				System.out.println("Number of seats available: " + t.getNumberOfSeats());
-				trainsAvailable.put(t.getTrainNumber(), t);
+			if(startCity.equals(t_startCity) && endCity.equals(t_endCity))
+			{
+				if(operatingDays.get(day) == 1) 
+				{
+					System.out.println("*******************************************");
+					System.out.println("Train number: " + t.getTrainNumber());
+					System.out.println("Train start city: " + t_startCity);
+					System.out.println("Train end city: " + t_endCity);
+					System.out.println("Train fare: " + t.getTrainFare());
+					System.out.println("Number of seats available: " + t.getNumberOfSeats());
+					trainsAvailable.put(t.getTrainNumber(),t);
+				}
 			}
 			//else
 			//	System.out.println("No trains found!");
